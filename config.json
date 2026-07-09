@@ -1,0 +1,42 @@
+{
+  "app": {
+    "name": "ZETA",
+    "tagline": "Your intelligence, refined.",
+    "version": "1.0.0"
+  },
+  "themes": {
+    "black":   { "label": "Dark",   "accent": "#888888", "bg": "#0a0a0c", "surface": "#141417" },
+    "white":   { "label": "Light",  "accent": "#666666", "bg": "#f7f5f1", "surface": "#ffffff" },
+    "gray":    { "label": "Graphite", "accent": "#aaaaaa", "bg": "#1c1c1f", "surface": "#25252a" }
+  },
+  "language": {
+    "default": "en",
+    "available": ["en", "fr", "ar", "es"]
+  },
+  "modes": ["light", "dark", "system"],
+"providers": {
+    "openai":     { "label": "OpenAI (GPT-4o, GPT-4)", "type": "openai_compatible", "base_url": "https://api.openai.com/v1", "default_model": "gpt-4o" },
+    "anthropic":  { "label": "Anthropic (Claude)", "type": "anthropic", "base_url": "https://api.anthropic.com/v1", "default_model": "claude-sonnet-4-20250514" },
+    "gemini":     { "label": "Google Gemini", "type": "gemini", "base_url": "https://generativelanguage.googleapis.com/v1beta", "default_model": "gemini-2.0-flash" },
+    "deepseek":   { "label": "DeepSeek V4 Flash", "type": "openai_compatible", "base_url": "https://api.deepseek.com/v1", "default_model": "deepseek-chat" },
+    "openrouter": { "label": "OpenRouter (Multi-Model)", "type": "openai_compatible", "base_url": "https://openrouter.ai/api/v1", "default_model": "deepseek/deepseek-v4-flash" },
+    "groq":       { "label": "Groq (Fast Inference)", "type": "openai_compatible", "base_url": "https://api.groq.com/openai/v1", "default_model": "llama-3.3-70b-versatile" },
+    "mistral":    { "label": "Mistral AI", "type": "openai_compatible", "base_url": "https://api.mistral.ai/v1", "default_model": "mistral-large-latest" },
+    "together":   { "label": "Together AI", "type": "openai_compatible", "base_url": "https://api.together.xyz/v1", "default_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo" },
+    "zenmux":     { "label": "ZenMux (Claude Sonnet 5)", "type": "openai_compatible", "base_url": "https://zenmux.ai/api/v1", "default_model": "anthropic/claude-sonnet-5" },
+    "ollama":     { "label": "Ollama (Local)", "type": "ollama", "base_url": "http://localhost:11434", "default_model": "llama3.2" }
+  },
+  "feature_toggles": {
+    "image_generation": true,
+    "prompt_library": true,
+    "email_verification": false,
+    "streaming": true
+  },
+  "prompt_categories": [
+    "Full Stack", "AI & Chatbots", "Social Media", "Video & Streaming",
+    "Music & Audio", "Developer Tools", "Cloud & Storage", "Productivity",
+    "Cybersecurity", "Portfolio & Agency", "SaaS", "E-Commerce",
+    "Travel & Booking", "Finance & Crypto", "Auth & Admin",
+    "Education & Healthcare", "Gaming", "Design"
+  ]
+}

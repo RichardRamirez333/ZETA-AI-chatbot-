@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="black" data-mode="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in · ZETA</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="auth-shell">
+  <div class="auth-card glass fade-in">
+    <div class="zeta-logo">
+      <div class="mark"><svg viewBox="0 0 34 34"><path d="M8 9h18l-16 16h17" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="wordmark">ZETA</span>
+    </div>
+
+    {% if show_reset %}
+    <!-- RESET PASSWORD PANEL -->
+    <div class="auth-panel" id="panel-reset">
+      <h1>Set a new password</h1>
+      <div class="sub">Choose a strong password for your account.</div>
+      <form id="reset-form">
+        <input type="hidden" name="token" value="{{ reset_token }}">
+        <div class="field"><label>New Password</label>
+          <div class="input-group">
+            <input class="input" type="password" id="reset-pw" name="password" minlength="8" required>
+            <button type="button" class="toggle-visibility" onclick="togglePasswordVisibility('reset-pw', this)"></button>
+          </div>
+        </div>
+        <p class="error-text"></p>
+        <p id="reset-message" style="font-size:13px; color:var(--text-dim); margin-bottom:10px;"></p>
+        <button class="btn btn-primary btn-block" type="submit">Update Password</button>
+      </form>
+    </div>
+
+    {% else %}
+    <!-- LOGIN PANEL -->
+    <div class="auth-panel" id="panel-login">
+      <h1>Welcome back</h1>
+      <div class="sub">Sign in to continue to ZETA</div>
+      <form id="login-form">
+        <div class="field"><label>Username or Email</label><input class="input" name="username" required autofocus></div>
+        <div class="field">
+          <label>Password</label>
+          <div class="input-group">
+            <input class="input" type="password" id="login-pw" name="password" required>
+            <button type="button" class="toggle-visibility" onclick="togglePasswordVisibility('login-pw', this)"></button>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+          <label class="checkbox-row"><input type="checkbox" name="remember" checked> Remember me</label>
+          <a href="#" data-show-panel="panel-forgot" style="font-size:13px; color:var(--accent); font-weight:600;">Forgot password?</a>
+        </div>
+        <p class="error-text"></p>
+        <button class="btn btn-primary btn-block" type="submit">Sign In</button>
+      </form>
+      <div class="auth-foot">Don't have an account? <a href="/register">Create one</a></div>
+    </div>
+
+    <!-- FORGOT PASSWORD PANEL -->
+    <div class="auth-panel" id="panel-forgot" style="display:none;">
+      <h1>Reset your password</h1>
+      <div class="sub">Enter your email and we'll send you a reset link.</div>
+      <form id="forgot-form">
+        <div class="field"><label>Email</label><input class="input" type="email" name="email" required></div>
+        <p class="error-text"></p>
+        <p id="forgot-message" style="font-size:13px; color:var(--text-dim); margin-bottom:10px;"></p>
+        <button class="btn btn-primary btn-block" type="submit">Send Reset Link</button>
+      </form>
+      <div class="auth-foot"><a href="#" data-show-panel="panel-login">Back to sign in</a></div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<div style="text-align:center; font-size:11px; color:var(--text-faint); margin-top:18px;">ZETA v1.0 · © 2026 shelby__x1 · Bakre Lamcharki · <a href="mailto:1thomas8shelby1@gmail.com" style="color:var(--accent);">Contact</a></div>
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</body>
+</html>

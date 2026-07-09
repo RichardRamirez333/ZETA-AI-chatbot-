@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Desktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ApplicationIcon>zeta.ico</ApplicationIcon>
+    <Title>ZETA</Title>
+    <Description>ZETA AI Chat Platform</Description>
+    <Company>shelby__x1</Company>
+    <Product>ZETA</Product>
+    <Copyright>(c) 2026 Bakre Lamcharki</Copyright>
+    <AssemblyName>ZETA</AssemblyName>
+    <RootNamespace>ZETA</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2903.40" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="run.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="black" data-mode="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create account · ZETA</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="auth-shell">
+  <div class="auth-card glass fade-in">
+    <div class="zeta-logo">
+      <div class="mark"><svg viewBox="0 0 34 34"><path d="M8 9h18l-16 16h17" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="wordmark">ZETA</span>
+    </div>
+    <h1>Create your account</h1>
+    <div class="sub">Your intelligence, refined.</div>
+    <form id="register-form">
+      <div class="field"><label>Username</label><input class="input" name="username" pattern="[a-zA-Z0-9_.-]{3,32}" required autofocus placeholder="e.g. alex_92"></div>
+      <div class="field"><label>Email</label><input class="input" type="email" name="email" required placeholder="you@example.com"></div>
+      <div class="field">
+        <label>Password</label>
+        <div class="input-group">
+          <input class="input" type="password" id="reg-pw" name="password" minlength="8" required placeholder="At least 8 characters">
+          <button type="button" class="toggle-visibility" onclick="togglePasswordVisibility('reg-pw', this)"></button>
+        </div>
+        <div class="hint">Use 8+ characters. Mixing cases and numbers helps.</div>
+      </div>
+      <p class="error-text"></p>
+      <button class="btn btn-primary btn-block" type="submit">Create Account</button>
+    </form>
+    <div class="auth-foot">Already have an account? <a href="/login">Sign in</a></div>
+  </div>
+</div>
+
+<div style="text-align:center; font-size:11px; color:var(--text-faint); margin-top:18px;">ZETA v1.0 · © 2026 shelby__x1 · Bakre Lamcharki · <a href="mailto:1thomas8shelby1@gmail.com" style="color:var(--accent);">Contact</a></div>
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</body>
+</html>

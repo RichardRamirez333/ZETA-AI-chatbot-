@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="{{ user.theme }}" data-mode="{{ user.mode }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile · ZETA</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+
+<div class="page-shell">
+  <main class="page-main" style="width:100%;">
+    <div class="page-header">
+      <div class="nav-item" style="display:inline-flex; margin-bottom:14px;" onclick="window.location.href='/'">
+        <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Back to Chat</span>
+      </div>
+      <h1>Profile</h1>
+      <p>Your public identity within ZETA.</p>
+    </div>
+    <div class="page-content" style="max-width:640px;">
+      <div class="card glass" style="display:flex; align-items:center; gap:20px; margin-bottom:20px;">
+        <div style="position:relative;">
+          {% if user.avatar_path %}
+          <img class="avatar" id="avatar-preview" src="{{ user.avatar_path }}" style="width:84px; height:84px; font-size:26px;">
+          {% else %}
+          <div class="avatar" id="avatar-preview" style="width:84px; height:84px; font-size:26px;"></div>
+          {% endif %}
+        </div>
+        <div>
+          <div style="font-weight:700; font-size:17px; font-family:var(--font-display);">{{ user.display_name or user.username }}</div>
+          <div style="color:var(--text-faint); font-size:13.5px; margin-bottom:10px;">{{ user.email }}</div>
+          <label class="btn btn-ghost" style="cursor:pointer;">
+            Upload New Photo
+            <input type="file" id="avatar-input" accept="image/*" style="display:none;">
+          </label>
+        </div>
+      </div>
+
+      <div class="card glass">
+        <div class="settings-row"><div class="info"><div class="t">Username</div><div class="s">{{ user.username }}</div></div></div>
+        <div class="settings-row"><div class="info"><div class="t">Member since</div><div class="s">{{ user.created_at }}</div></div></div>
+        <div class="settings-row" style="border:none;">
+          <div class="info"><div class="t">Manage account, security & API keys</div><div class="s">Full settings, including password and provider keys</div></div>
+          <button class="btn btn-primary" onclick="window.location.href='/settings'">Open Settings</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+(function(){
+  const el = document.getElementById("avatar-preview");
+  if (el && el.tagName === "DIV") {
+    const name = {{ (user.display_name or user.username) | tojson }};
+    const parts = name.trim().split(/\s+/);
+    el.textContent = (parts[0][0] + (parts[1] ? parts[1][0] : "")).toUpperCase();
+  }
+})();
+document.getElementById("avatar-input").addEventListener("change", async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const fd = new FormData();
+  fd.append("avatar", file);
+  try {
+    const res = await fetch("/api/profile/avatar", { method: "POST", body: fd });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || "Upload failed");
+    const preview = document.getElementById("avatar-preview");
+    const img = document.createElement("img");
+    img.className = "avatar";
+    img.style.width = "84px"; img.style.height = "84px";
+    img.src = body.avatar_path + "?t=" + Date.now();
+    preview.replaceWith(img);
+    img.id = "avatar-preview";
+    toast("Profile photo updated", "success");
+  } catch (err) {
+    toast(err.message, "error");
+  }
+});
+</script>
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
