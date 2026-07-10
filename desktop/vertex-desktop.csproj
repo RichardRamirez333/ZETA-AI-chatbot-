@@ -5,14 +5,14 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <ApplicationIcon>zeta.ico</ApplicationIcon>
-    <Title>ZETA</Title>
-    <Description>ZETA AI Chat Platform</Description>
+    <ApplicationIcon>vertex.ico</ApplicationIcon>
+    <Title>VERTEX</Title>
+    <Description>VERTEX AI Chat Platform</Description>
     <Company>shelby__x1</Company>
-    <Product>ZETA</Product>
+    <Product>VERTEX</Product>
     <Copyright>(c) 2026 Bakre Lamcharki</Copyright>
-    <AssemblyName>ZETA</AssemblyName>
-    <RootNamespace>ZETA</RootNamespace>
+    <AssemblyName>VERTEX</AssemblyName>
+    <RootNamespace>VERTEX</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2903.40" />

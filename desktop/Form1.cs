@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using Microsoft.Web.WebView2.WinForms;
 
-namespace ZETA;
+namespace VERTEX;
 
 public class Form1 : Form
 {
@@ -10,7 +10,7 @@ public class Form1 : Form
 
     public Form1()
     {
-        Text = "ZETA";
+        Text = "VERTEX";
         Size = new Size(1280, 800);
         MinimumSize = new Size(900, 600);
         StartPosition = FormStartPosition.CenterScreen;
@@ -22,11 +22,11 @@ public class Form1 : Form
         base.OnLoad(e);
 
         var dir = Path.GetDirectoryName(Application.ExecutablePath)!;
-        var exe = Path.Combine(dir, "ZETA.exe");
+        var exe = Path.Combine(dir, "VERTEX.exe");
         if (!File.Exists(exe))
-            exe = Path.Combine(dir, "..", "..", "..", "dist", "ZETA.exe");
+            exe = Path.Combine(dir, "..", "..", "..", "dist", "VERTEX.exe");
         if (!File.Exists(exe))
-        { MessageBox.Show("ZETA.exe not found"); return; }
+        { MessageBox.Show("VERTEX.exe not found"); return; }
 
         proc = Process.Start(new ProcessStartInfo
         {

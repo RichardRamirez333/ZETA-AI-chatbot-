@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZETA</title>
+<title>VERTEX</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
@@ -16,11 +16,10 @@
 <div class="app-shell">
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <div class="zeta-logo">
-        <div class="mark">
-          <svg viewBox="0 0 34 34"><path d="M8 9h18l-16 16h17" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <span class="wordmark">ZETA</span>
+      <div class="vertex-logo">
+        <img class="logo-light" src="/static/images/vertex-lightmode.png" alt="Vertex" width="32" height="32">
+        <img class="logo-dark" src="/static/images/vertex-darkmode.png" alt="Vertex" width="32" height="32">
+        <span class="wordmark">VERTEX</span>
       </div>
       <button class="collapse-btn" id="collapse-btn" title="Toggle sidebar">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M4 6h16M4 12h10M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -107,7 +106,7 @@
           <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         </button>
         <div class="model-picker" id="model-picker">
-          <span id="model-picker-label">ZETA</span>
+          <span id="model-picker-label">VERTEX</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
       </div>
@@ -119,24 +118,24 @@
     </div>
 
     <!-- CHAT VIEW -->
-    <div class="zeta-view" id="view-chat" style="display:flex; flex-direction:column; flex:1; min-height:0;">
+    <div class="vertex-view" id="view-chat" style="display:flex; flex-direction:column; flex:1; min-height:0;">
       <div class="chat-scroll" id="chat-scroll"></div>
       <div class="composer-wrap">
         <div class="composer glass">
-          <textarea id="composer-input" rows="1" placeholder="Message ZETA…"></textarea>
+          <textarea id="composer-input" rows="1" placeholder="Message VERTEX…"></textarea>
           <div class="composer-actions">
             <button class="send-btn" id="send-btn">
               <svg viewBox="0 0 24 24" fill="none"><path d="M4 11l16-7-6 16-3-7-7-2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
             </button>
           </div>
         </div>
-        <div class="composer-hint">ZETA can make mistakes. Verify important information. · Enter to send, Shift+Enter for a new line</div>
-        <div class="app-footer">ZETA v1.0 · © 2026 shelby__x1 · Built by Bakre Lamcharki from Morocco · <a href="mailto:1thomas8shelby1@gmail.com">Contact</a></div>
+        <div class="composer-hint">VERTEX can make mistakes. Verify important information. · Enter to send, Shift+Enter for a new line</div>
+        <div class="app-footer">VERTEX v1.0 · © 2026 Vertex Company · Bakre Lamcharki · <a href="mailto:1thomas8shelby1@gmail.com">Contact</a></div>
       </div>
     </div>
 
     <!-- PROMPT LIBRARY VIEW -->
-    <div class="zeta-view" id="view-prompts" style="display:none; flex-direction:column; flex:1; overflow-y:auto;">
+    <div class="vertex-view" id="view-prompts" style="display:none; flex-direction:column; flex:1; overflow-y:auto;">
       <div class="page-header">
         <h1>Prompt Library</h1>
         <p>Save, organize, and reuse your best prompts.</p>
@@ -152,7 +151,7 @@
     </div>
 
     <!-- IMAGE GENERATOR VIEW -->
-    <div class="zeta-view" id="view-images" style="display:none; flex-direction:column; flex:1; overflow-y:auto;">
+    <div class="vertex-view" id="view-images" style="display:none; flex-direction:column; flex:1; overflow-y:auto;">
       <div class="page-header">
         <h1>Image Generator</h1>
         <p>Generate images using your connected provider's model.</p>
@@ -190,7 +189,7 @@
     </div>
 
     <!-- FILES VIEW -->
-    <div class="zeta-view" id="view-files" style="display:none; flex-direction:column; flex:1; overflow-y:auto;">
+    <div class="vertex-view" id="view-files" style="display:none; flex-direction:column; flex:1; overflow-y:auto;">
       <div class="page-header"><h1>Files</h1><p>Everything you've generated or uploaded.</p></div>
       <div class="page-content" id="files-list"></div>
     </div>
@@ -228,12 +227,12 @@
 </div>
 
 <script>
-  window.ZETA_USER = { display_name: {{ (user.display_name if user and user.display_name else user.username if user else '') | tojson }} };
-  window.ZETA_CONFIG = {{ config | tojson }};
-  window.ZETA_DEFAULT_PROVIDER = "openrouter";
+  window.VERTEX_USER = { display_name: {{ (user.display_name if user and user.display_name else user.username if user else '') | tojson }} };
+  window.VERTEX_CONFIG = {{ config | tojson }};
+  window.VERTEX_DEFAULT_PROVIDER = "openrouter";
   document.addEventListener("DOMContentLoaded", () => {
     const el = document.getElementById("sidebar-avatar-initials");
-    if (el) el.textContent = initials(window.ZETA_USER.display_name);
+    if (el) el.textContent = initials(window.VERTEX_USER.display_name);
     if (window.innerWidth <= 900) document.getElementById("mobile-menu-btn").style.display = "flex";
   });
 </script>

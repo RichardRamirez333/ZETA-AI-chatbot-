@@ -1,7 +1,7 @@
 {
-  "name": "zeta",
+  "name": "vertex",
   "version": "1.0.0",
-  "description": "ZETA - AI Chat Platform",
+  "description": "VERTEX - AI Chat Platform",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -13,8 +13,8 @@
   "author": "shelby__x1 / Bakre Lamcharki",
   "license": "MIT",
   "build": {
-    "appId": "com.zeta.chat",
-    "productName": "ZETA",
+    "appId": "com.vertex.chat",
+    "productName": "VERTEX",
     "directories": {
       "output": "../dist-desktop"
     },
@@ -26,8 +26,8 @@
     ],
     "extraResources": [
       {
-        "from": "../dist/ZETA.exe",
-        "to": "backend/ZETA.exe"
+        "from": "../dist/VERTEX.exe",
+        "to": "backend/VERTEX.exe"
       }
     ],
     "win": {

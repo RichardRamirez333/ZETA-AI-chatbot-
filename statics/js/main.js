@@ -93,10 +93,10 @@ function initSidebar() {
         return;
       }
       const collapsed = sidebar.classList.toggle("collapsed");
-      localStorage.setItem("zeta_sidebar_collapsed", collapsed ? "1" : "0");
+      localStorage.setItem("vertex_sidebar_collapsed", collapsed ? "1" : "0");
     });
   }
-  if (localStorage.getItem("zeta_sidebar_collapsed") === "1" && window.innerWidth > 900) {
+  if (localStorage.getItem("vertex_sidebar_collapsed") === "1" && window.innerWidth > 900) {
     sidebar && sidebar.classList.add("collapsed");
   }
   if (mobileToggle) {

@@ -1,6 +1,6 @@
 """
 database.py
-Database access layer for ZETA.
+Database access layer for VERTEX.
 
 Uses SQLite by default (database/users.db). The DB_URL/driver logic is kept
 isolated here so swapping to PostgreSQL later only requires changing

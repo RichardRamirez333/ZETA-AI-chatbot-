@@ -5,7 +5,7 @@ Symmetric encryption for user-supplied provider API keys.
 A local key file (database/secret.key) is generated on first run and is
 never sent to the browser. Every API key stored in the `api_keys` table is
 encrypted with this key before being written to disk, and decrypted only
-in-memory, per-request, when ZETA needs to call a provider on the user's
+in-memory, per-request, when VERTEX needs to call a provider on the user's
 behalf.
 """
 import os

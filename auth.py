@@ -148,7 +148,7 @@ def forgot_password():
         reset_link = url_for("auth.reset_password_page", token=token, _external=True)
         _send_email(
             to=email,
-            subject="Reset your ZETA password",
+            subject="Reset your VERTEX password",
             body=f"Click the link below to reset your password (valid 1 hour):\n\n{reset_link}",
         )
     return jsonify({"ok": True, "message": "If that email exists, a reset link has been sent."})
@@ -192,7 +192,7 @@ def _send_email(to, subject, body):
     import os
     host = os.environ.get("SMTP_HOST")
     if not host:
-        print(f"[ZETA MAIL - no SMTP configured] To: {to} | Subject: {subject}\n{body}\n")
+        print(f"[VERTEX MAIL - no SMTP configured] To: {to} | Subject: {subject}\n{body}\n")
         return
     try:
         port = int(os.environ.get("SMTP_PORT", "587"))
@@ -207,4 +207,4 @@ def _send_email(to, subject, body):
             server.login(user, pw)
             server.sendmail(user, [to], msg.as_string())
     except Exception as e:
-        print(f"[ZETA MAIL ERROR] Could not send email to {to}: {e}")
+        print(f"[VERTEX MAIL ERROR] Could not send email to {to}: {e}")

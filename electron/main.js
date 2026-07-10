@@ -19,13 +19,13 @@ function startServer() {
   return new Promise((resolve, reject) => {
     let exePath;
     if (app.isPackaged) {
-      exePath = path.join(process.resourcesPath, 'backend', 'ZETA.exe');
+      exePath = path.join(process.resourcesPath, 'backend', 'VERTEX.exe');
     } else {
-      exePath = path.join(__dirname, '..', 'dist', 'ZETA.exe');
+      exePath = path.join(__dirname, '..', 'dist', 'VERTEX.exe');
     }
 
     if (!fs.existsSync(exePath)) {
-      console.log('ZETA.exe not found. Starting Python directly...');
+      console.log('VERTEX.exe not found. Starting Python directly...');
       const pythonPath = path.join(__dirname, '..', 'win_launcher.py');
       serverProcess = spawn('python', [pythonPath], {
         cwd: path.join(__dirname, '..'),
@@ -74,7 +74,7 @@ function createWindow() {
     minWidth: 900,
     minHeight: 600,
     icon: path.join(__dirname, '..', 'electron', 'icon.png'),
-    title: 'ZETA',
+    title: 'VERTEX',
     backgroundColor: '#0a0a0c',
     webPreferences: {
       nodeIntegration: false,

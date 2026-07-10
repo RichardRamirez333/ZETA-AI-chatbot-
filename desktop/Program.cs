@@ -1,4 +1,4 @@
-namespace ZETA;
+namespace VERTEX;
 
 static class Program
 {

@@ -1,4 +1,4 @@
-/* chat.js — the ZETA chat application (index.html) */
+/* chat.js — the VERTEX chat application (index.html) */
 
 const Zeta = {
   chatId: null,
@@ -119,9 +119,9 @@ function renderMessageHTML(m) {
   const isUser = m.role === "user";
   return `
   <div class="msg-row ${isUser ? "user" : "assistant"}" data-message-id="${m.id}">
-    <div class="msg-avatar">${isUser ? initials(window.ZETA_USER.display_name) : zetaMonogramSmall()}</div>
+    <div class="msg-avatar">${isUser ? initials(window.VERTEX_USER.display_name) : vertexMonogramSmall()}</div>
     <div class="msg-body">
-      <div class="msg-meta">${isUser ? "You" : "ZETA"}${m.model ? ` · ${m.model}` : ""}</div>
+      <div class="msg-meta">${isUser ? "You" : "VERTEX"}${m.model ? ` · ${m.model}` : ""}</div>
       <div class="msg-content">${md(m.content)}</div>
       <div class="msg-actions">
         <button data-act="copy" title="Copy">${ICONS.copy}</button>
@@ -177,9 +177,9 @@ function hydrateCodeBlocks() {
 function emptyStateHTML() {
   return `
   <div class="empty-state">
-    <div class="mark">${zetaMonogramLarge()}</div>
-    <h1>What can I help with, ${escapeHtml((window.ZETA_USER.display_name || "there").split(" ")[0])}?</h1>
-    <p>Ask anything, brainstorm an idea, or drop in a task. ZETA routes your message to whichever model you've configured.</p>
+    <div class="mark">${vertexMonogramLarge()}</div>
+    <h1>What can I help with, ${escapeHtml((window.VERTEX_USER.display_name || "there").split(" ")[0])}?</h1>
+    <p>Ask anything, brainstorm an idea, or drop in a task. VERTEX routes your message to whichever model you've configured.</p>
     <div class="suggestion-grid">
       <div class="suggestion-card" data-prompt="Explain quantum computing simply">
         <div class="t">Explain a concept</div><div class="s">quantum computing, simply</div>
@@ -247,9 +247,9 @@ async function streamAssistantReply(userText) {
   const assistantId = `streaming-${Date.now()}`;
   inner.insertAdjacentHTML("beforeend", `
     <div class="msg-row assistant" data-message-id="${assistantId}">
-      <div class="msg-avatar">${zetaMonogramSmall()}</div>
+      <div class="msg-avatar">${vertexMonogramSmall()}</div>
       <div class="msg-body">
-        <div class="msg-meta">ZETA</div>
+        <div class="msg-meta">VERTEX</div>
         <div class="msg-content" id="${assistantId}"><span class="typing-dots"><span></span><span></span><span></span></span></div>
       </div>
     </div>`);
@@ -325,13 +325,13 @@ function autoResize(el) {
 function updateModelPickerLabel() {
   const label = document.getElementById("model-picker-label");
   if (!label) return;
-  const cfg = window.ZETA_CONFIG.providers[Zeta.provider];
+  const cfg = window.VERTEX_CONFIG.providers[Zeta.provider];
   label.textContent = `${cfg.label} · ${Zeta.model || cfg.default_model}`;
 }
 
 function renderModelModal() {
   const list = document.getElementById("model-list");
-  const providers = window.ZETA_CONFIG.providers;
+  const providers = window.VERTEX_CONFIG.providers;
   list.innerHTML = Object.entries(providers).map(([key, p]) => `
     <div class="settings-row" style="cursor:pointer" data-provider="${key}">
       <div class="info">
@@ -354,7 +354,7 @@ function renderModelModal() {
 
 function showView(view) {
   Zeta.view = view;
-  document.querySelectorAll(".zeta-view").forEach((v) => (v.style.display = "none"));
+  document.querySelectorAll(".vertex-view").forEach((v) => (v.style.display = "none"));
   const el = document.getElementById(`view-${view}`);
   if (el) el.style.display = "flex";
   document.querySelectorAll(".nav-item[data-view]").forEach((n) => {
@@ -471,18 +471,18 @@ const ICONS = {
   download: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
 };
 
-function zetaMonogramSmall() {
+function vertexMonogramSmall() {
   return `<svg viewBox="0 0 34 34" width="18" height="18"><path d="M8 9h18l-16 16h17" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 }
-function zetaMonogramLarge() {
+function vertexMonogramLarge() {
   return `<svg viewBox="0 0 56 56"><path d="M12 14h30l-27 27h29" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 }
 
 /* ============================== INIT ============================== */
 
 document.addEventListener("DOMContentLoaded", async () => {
-  Zeta.provider = window.ZETA_DEFAULT_PROVIDER || "openai";
-  Zeta.model = window.ZETA_CONFIG.providers[Zeta.provider].default_model;
+  Zeta.provider = window.VERTEX_DEFAULT_PROVIDER || "openai";
+  Zeta.model = window.VERTEX_CONFIG.providers[Zeta.provider].default_model;
   updateModelPickerLabel();
 
   document.getElementById("new-chat-btn").addEventListener("click", newChat);

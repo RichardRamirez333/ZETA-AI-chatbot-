@@ -12,7 +12,7 @@ if __name__ == "__main__":
     threading.Thread(target=start_flask, daemon=True).start()
     time.sleep(2)
     webview.create_window(
-        title="ZETA",
+        title="VERTEX",
         url="http://127.0.0.1:3000",
         width=1280,
         height=800,

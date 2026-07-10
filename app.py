@@ -1,6 +1,6 @@
 """
 app.py
-ZETA - entrypoint. Run with:  python app.py
+VERTEX - entrypoint. Run with:  python app.py
 """
 from flask import Flask, render_template, session, redirect, url_for, send_from_directory
 
