@@ -1,8 +1,15 @@
-# ZETA v1.0 — AI Chat Platform
+<p align="center">
+  <img src="VERTEX.png" alt="Vertex" width="120">
+</p>
 
-**Your intelligence, refined.**
+<h1 align="center">Vertex</h1>
 
-ZETA is a full-stack AI chat **desktop application** for Windows that connects you to **any AI model** — OpenAI, Anthropic Claude, Google Gemini, DeepSeek V4 Flash, Mistral, Groq, Together AI, Ollama (local), and more — all through a single, clean native window. No browser tabs, no subscriptions, no vendor lock-in.
+<p align="center">
+  <b>Your intelligence, refined.</b><br>
+  <i>A product by Vertex Company</i>
+</p>
+
+**Vertex** is a full-stack AI chat **desktop application** for Windows that connects you to **any AI model** — OpenAI, Anthropic Claude, Google Gemini, DeepSeek V4 Flash, Mistral, Groq, Together AI, Ollama (local), and more — all through a single, clean native window. No browser tabs, no subscriptions, no vendor lock-in.
 
 Just add your API key from any provider and start chatting instantly.
 
@@ -28,6 +35,8 @@ Just add your API key from any provider and start chatting instantly.
 
 ## How to Get API Keys (Free Options)
 
+Vertex never stores your keys in plaintext. They are encrypted at rest and decrypted only in memory per request.
+
 | Provider | Key Website | Free Tier |
 |----------|-------------|-----------|
 | **OpenRouter** | https://openrouter.ai/keys | $1 free credit on signup, free models available |
@@ -46,7 +55,7 @@ Just add your API key from any provider and start chatting instantly.
 1. Go to **https://openrouter.ai/keys**
 2. Create an account (email or Google/GitHub — free, no credit card)
 3. Generate an API key
-4. Add it to ZETA → Settings → API Keys → OpenRouter
+4. Add it to Vertex → Settings → API Keys → OpenRouter
 5. You now have access to DeepSeek V4 Flash, Llama 3, Mistral, and many other models for free
 
 ---
@@ -55,7 +64,7 @@ Just add your API key from any provider and start chatting instantly.
 
 ### Windows desktop app (recommended):
 ```
-1. Double-click ZETA.exe
+1. Double-click Vertex.exe
 ```
 
 The app opens in its own native window — no browser needed.
@@ -69,7 +78,7 @@ python app.py
 The app runs at **http://127.0.0.1:3000**
 
 ### First steps:
-1. Launch ZETA.exe (or open http://127.0.0.1:3000)
+1. Launch Vertex.exe (or open http://127.0.0.1:3000)
 2. Create an account (register)
 3. Go to Settings → API Keys → add your key
 4. Start chatting!
@@ -89,7 +98,7 @@ The app runs at **http://127.0.0.1:3000**
 ## Project Structure
 
 ```
-zeta-ai/
+vertex/
 ├── app.py              # Flask application entry point
 ├── auth.py             # Authentication routes & decorators
 ├── chat.py             # Chat CRUD & streaming routes
@@ -102,7 +111,8 @@ zeta-ai/
 ├── requirements.txt    # Python dependencies
 ├── run.bat             # One-click browser launcher
 ├── zeta_desktop.py     # Desktop entry point (pywebview)
-├── build_exe.bat        # Build ZETA.exe with PyInstaller
+├── build_exe.bat        # Build Vertex.exe with PyInstaller
+├── VERTEX.png           # Vertex logo
 ├── database/
 │   └── users.db        # SQLite database (auto-created)
 └── statics/
@@ -125,13 +135,20 @@ Run `build_exe.bat` to produce a single `.exe`:
 .\build_exe.bat
 ```
 
-Output: `dist\ZETA.exe` — a standalone Windows executable (no Python required).
+Output: `dist\Vertex.exe` — a standalone Windows executable (no Python required).
+
+---
+
+## About Vertex Company
+
+**Vertex** is a software company founded by **Bakre Lamcharki**, dedicated to building intelligent, privacy-first AI tools for everyday users.
 
 ---
 
 ## Contact
 
-- **Developer:** Bakre Lamcharki (a.k.a. shelby__x1 / RichardRamirez333)
+- **Founder & Producer:** Bakre Lamcharki
+- **Company:** Vertex
 - **Email:** 1thomas8shelby1@gmail.com
 - **Phone:** 0700616121
 - **Location:** Morocco
@@ -142,10 +159,10 @@ Output: `dist\ZETA.exe` — a standalone Windows executable (no Python required)
 
 MIT License
 
-Copyright © 2025–2026 **shelby__x1 (RichardRamirez333) / Bakre Lamcharki**
+Copyright © 2025–2026 **Vertex Company** — Founded by Bakre Lamcharki
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."# ZETA-AI-chatbot-" 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
